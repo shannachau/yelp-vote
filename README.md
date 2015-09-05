@@ -52,7 +52,8 @@ I want to create a group messaging application that allows users to vote on vari
   - text
   - user_id
   - message_id
-  - belongs_to_one user
+  - belongs_to user
+  - belongs_to message
 - Suggestion
   - user_id
   - things from yelp API
