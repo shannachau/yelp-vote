@@ -42,7 +42,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'simplecov'
+  gem 'simplecov', require: false
 end
 
 group :development do
