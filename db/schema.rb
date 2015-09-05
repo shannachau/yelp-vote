@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(version: 20150905024156) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "message_user", id: false, force: :cascade do |t|
-    t.integer "user_id",    null: false
-    t.integer "message_id", null: false
-  end
-
-  add_index "message_user", ["message_id", "user_id"], name: "index_message_user_on_message_id_and_user_id"
-  add_index "message_user", ["user_id", "message_id"], name: "index_message_user_on_user_id_and_message_id"
-
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "messages_users", id: false, force: :cascade do |t|
+    t.integer "user_id",    null: false
+    t.integer "message_id", null: false
+  end
+
+  add_index "messages_users", ["message_id", "user_id"], name: "index_messages_users_on_message_id_and_user_id"
+  add_index "messages_users", ["user_id", "message_id"], name: "index_messages_users_on_user_id_and_message_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
