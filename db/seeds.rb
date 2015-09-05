@@ -7,13 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(username: "shanna", password: "shanna", password_confirmation: "shanna")
-User.create(username: "pitbull", password: "pitbull", password_confirmation: "pitbull")
-User.create(username: "seanpaul", password: "seanpaul", password_confirmation: "seanpaul")
+user1 = User.create(username: "shanna", password: "shanna", password_confirmation: "shanna")
+user2 = User.create(username: "pitbull", password: "pitbull", password_confirmation: "pitbull")
+user3 = User.create(username: "seanpaul", password: "seanpaul", password_confirmation: "seanpaul")
 
-Message.create
-Message.create
+message1 = Message.create
+message1.users << user1
+message1.users << user2
 
+message2 = Message.create
+message2.users << user1
+message2.users << user2
+message2.users << user3
 
 Entry.create(text: "Hey dude", user_id: 1, message_id: 1)
 Entry.create(text: "What's up", user_id: 2, message_id: 1)
