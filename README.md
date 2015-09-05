@@ -63,3 +63,6 @@ I want to create a group messaging application that allows users to vote on vari
   - no
   - suggestion_id
   - belongs_to_one suggestion
+
+## FINISH WRITING REMAINING TESTS FOR MODELS
+## CREATE SIGN IN FORM THAT CREATES NEW SESSION
