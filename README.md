@@ -42,12 +42,12 @@ I want to create a group messaging application that allows users to vote on vari
 - User
   - username
   - password
-  - has_many messages
+  - has_many_and_belongs_to messages (join table)
   - has_many entries
 - Message
   - has_many suggestions
   - has_many entries
-  - belongs_to_many users
+  - has_many_and_belongs_to users (join table)
 - Entry
   - text
   - user_id
