@@ -1,5 +1,6 @@
 # yelp-vote
 I want to create a group messaging application that allows users to vote on various places to have dinner/go out/visit/have drinks. I will be using the Yelp API in order for people to look up suggestions of where to go.
+- TRELLO: https://trello.com/b/CfdIwylv
 
 # Goals of Project
 - Ship a usable project at the end of a week
