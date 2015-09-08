@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <%= form_for @user, url: users_new_path do |f| %>
   <div class="form-group">
     <%= f.label :username %>
