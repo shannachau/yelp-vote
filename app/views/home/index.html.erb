@@ -1,1 +1,10 @@
 <h1>THIS IS A WEBSITE</h1>
+
+<%= link_to "Login", login_path %>
+<%= link_to "Logout", logout_path, method: :delete %>
+
+<% if session[:user_id] %>
+<p>
+  Welcome, <%= User.find(session[:user_id]).username %>
+</p>
+<% end %>
