@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
-  get '/users/new' => 'user#new'
-  post '/users/new' => 'user#create'
+  get '/users/new' => 'users#new'
+  post '/users/new' => 'users#create'
 
 
 
