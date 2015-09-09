@@ -6,7 +6,6 @@
   </li>
 <% end %>
 
-<!-- Change url  -->
 <%= form_for @entry, url: message_entries_path(@message.id), html: {class: "form-inline"} do |f| %>
   <div class="form-group">
     <%= f.label :text %>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/users/new' => 'users#create'
 
   resources :messages do
-    resources :entries
+    post '/entries' => 'entries#create'
   end
 
 
