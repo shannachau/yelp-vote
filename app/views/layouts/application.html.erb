@@ -8,6 +8,21 @@
 </head>
 
 <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Login", login_path%></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <li><%= link_to "Sign Up", users_new_path %></li>
+      </ul>
+
+      <% if session[:user_id] %>
+        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= User.find(session[:user_id]).username %></a></p>
+      <% end %>
+    </div>
+  </nav>
+
   <div class="container-fluid">
     <%= yield %>
   </div>
