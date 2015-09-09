@@ -12,7 +12,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <ul class="nav navbar-nav navbar-left">
-        <li> = </li>
+        <li><%= link_to "Messages", messages_path %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -22,7 +22,7 @@
       </ul>
 
       <% if session[:user_id] %>
-        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= User.find(session[:user_id]).username %></a></p>
+        <p class="navbar-text navbar-right">Signed in as <%= User.find(session[:user_id]).username %></p>
       <% end %>
     </div>
   </nav>
