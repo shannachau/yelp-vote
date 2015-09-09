@@ -5,3 +5,17 @@
     <%= entry.text %> <small><%= username(entry) %></small>
   </li>
 <% end %>
+
+<!-- Change url  -->
+<%= form_for @entry, url: message_entries_path(@message.id), html: {class: "form-inline"} do |f| %>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_field :text, class: "form-control" %>
+  </div>
+
+    <%= f.hidden_field :user_id, value: session[:user_id]%>
+
+    <%= f.hidden_field :message_id, value: @message.id%>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users/new' => 'users#create'
 
-  resources :messages
+  resources :messages do
+    resources :entries
+  end
 
 
   # Example of regular route:

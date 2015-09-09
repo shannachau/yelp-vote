@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @entry = Entry.new
   end
 
   private
