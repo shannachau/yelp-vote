@@ -1,0 +1,11 @@
+<h1>These are all a user's messages</h1>
+
+<% @messages.each do |message| %>
+  <h4><%= link_to "Message #{message.id}", message_path(message.id) %></h4>
+
+  <ul>
+  <% message.entries.each do |entry| %>
+    <li> <%= entry.text %> <small><%= username(entry) %></small></li>
+  <% end %>
+  </ul>
+<% end %>
