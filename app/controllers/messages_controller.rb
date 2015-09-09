@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :require_login
+
   def index
     user = User.find_by(id: session[:user_id])
     @messages = user.messages
@@ -23,10 +25,5 @@ class MessagesController < ApplicationController
     end
 
     redirect_to messages_path
-  end
-
-  private
-
-  def require_login
   end
 end
