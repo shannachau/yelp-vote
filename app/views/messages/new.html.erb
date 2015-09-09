@@ -1,0 +1,10 @@
+<h1>Create new message</h1>
+
+<%= form_for @message, url: messages_path do |f|  %>
+  <div class="form-group">
+    <%= f.label :users %>
+    <%= f.collection_check_boxes(:users, @users, :id, :username, checked: @message.users.map(&:id), class: "form-control") %>  </div>
+
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

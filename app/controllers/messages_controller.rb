@@ -9,6 +9,21 @@ class MessagesController < ApplicationController
     @entry = Entry.new
   end
 
+  def new
+    @message = Message.new
+    @users = User.all
+  end
+
+  def create
+    @message = Message.create
+
+    params[:message][:users].each do |user_id|
+      @message.users << User.find(user_id.to_i)
+    end
+
+    redirect_to messages_path
+  end
+
   private
 
   def require_login
