@@ -16,9 +16,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create
+    user_ids = params[:message][:users]
 
-    params[:message][:users].each do |user_id|
-      @message.users << User.find(user_id.to_i)
+    user_ids.each do |user_id|
+      @message.users << User.find(user_id.to_i) unless user_id == ""
     end
 
     redirect_to messages_path
