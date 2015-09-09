@@ -1,1 +1,7 @@
-<h1>Individual message page</h1>
+<h1>Message <%= @message.id %></h1>
+
+<% @message.entries.each do |entry| %>
+  <li>
+    <%= entry.text %> <small><%= username(entry) %></small>
+  </li>
+<% end %>
