@@ -1,20 +1,40 @@
 <h1>Message <%= @message.id %></h1>
 
-<% @message.entries.each do |entry| %>
-  <li>
-    <%= entry.text %> <small><%= username(entry) %></small>
-  </li>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <% @message.entries.each do |entry| %>
+      <li>
+        <%= entry.text %> <small><%= username(entry) %></small>
+      </li>
+    <% end %>
 
-<%= form_for @entry, url: message_entries_path(@message.id), html: {class: "form-inline"} do |f| %>
-  <div class="form-group">
-    <%= f.label :text %>
-    <%= f.text_field :text, class: "form-control" %>
+    <%= form_for @entry, url: message_entries_path(@message.id), html: {class: "form-inline"} do |f| %>
+      <div class="form-group">
+        <%= f.label :text %>
+        <%= f.text_field :text, class: "form-control" %>
+      </div>
+
+        <%= f.hidden_field :user_id, value: session[:user_id]%>
+
+        <%= f.hidden_field :message_id, value: @message.id%>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
-    <%= f.hidden_field :user_id, value: session[:user_id]%>
+  <div class="col-md-8">
+    <%= form_tag search_path, method: "get", class: "form-inline" do %>
+      <div class="form-group">
+        <%= label_tag(:search) %>
+        <%= text_field_tag :search, "", class: "form-control" %>
+      </div>
 
-    <%= f.hidden_field :message_id, value: @message.id%>
+      <div class="form-group">
+        <%= label_tag(:location) %>
+        <%= text_field_tag :location, "", class: "form-control" %>
+      </div>
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+      <%= submit_tag "Search", class: "search btn btn-default" %>
+    <% end %>
+  </div>
+</div>
