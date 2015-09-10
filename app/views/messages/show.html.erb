@@ -31,7 +31,7 @@
 
       <div class="form-group">
         <%= label_tag(:location) %>
-        <%= text_field_tag :location, "", class: "form-control" %>
+        <%= text_field_tag :location, "", class: "form-control", required: true %>
       </div>
 
       <%= submit_tag "Search", class: "search btn btn-default" %>
