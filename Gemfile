@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 gem 'bcrypt'
-gem 'yelp', require: 'yelp'
+gem 'yelp'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', require: false
+
+  gem 'dotenv-rails'
 end
 
 group :development do
