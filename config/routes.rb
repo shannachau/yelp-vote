@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post '/entries' => 'entries#create'
   end
 
+  get '/search' => 'yelp_api#search', as: 'search'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
