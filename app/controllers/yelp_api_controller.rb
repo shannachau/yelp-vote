@@ -3,8 +3,8 @@ require 'yelp_client'
 class YelpApiController < ApplicationController
   def search
     begin
-      if params[:search] && params[:location]
-        response = Yelp.client.search(params[:location], { term: params[:search], limit: 10 })
+      if params[:search_term] && params[:location]
+        response = Yelp.client.search(params[:location], { term: params[:search_term], limit: 10 })
       elsif params[:location]
         response = Yelp.client.search(params[:location], { limit: 10 })
       end
