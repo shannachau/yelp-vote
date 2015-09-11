@@ -24,6 +24,6 @@ class MessagesController < ApplicationController
       @message.users << User.find(user_id.to_i) unless user_id == ""
     end
 
-    redirect_to messages_path
+    redirect_to message_path(@message)
   end
 end
