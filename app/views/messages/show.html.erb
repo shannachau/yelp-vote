@@ -23,7 +23,7 @@
   </div>
 
   <div class="col-md-8">
-    <%= form_tag search_path, method: "get", class: "form-inline" do %>
+    <%= form_tag search_path, method: "get", class: "form-inline search-form" do %>
       <div class="form-group">
         <%= label_tag(:search_term) %>
         <%= text_field_tag :search_term, "", class: "search-term form-control" %>
@@ -37,8 +37,12 @@
       <%= submit_tag "Search", class: "search btn btn-default" %>
     <% end %>
 
-    <ul class="results">
-    </ul>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="results list-group">
+        </ul>
+      </div>
+    </div>
 
   </div>
 </div>
