@@ -28,9 +28,7 @@ class YelpApiController < ApplicationController
           name: business.name,
           url: business.url,
           image_url: business.image_url,
-          rating: business.rating,
           rating_image: business.rating_img_url_small,
-          review: business.review_count,
           location: business.location.display_address
         })
     end
