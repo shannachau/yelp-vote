@@ -15,7 +15,6 @@ class YelpApiController < ApplicationController
       data = {}
       code = :no_content
     end
-    raise
     render json: data.as_json, code: code
   end
 
@@ -32,13 +31,9 @@ class YelpApiController < ApplicationController
           rating: business.rating,
           rating_image: business.rating_img_url_small,
           review: business.review_count,
-          location: format_address(business.location.display_address)
+          location: business.location.display_address
         })
     end
     return final_format
-  end
-
-  def format_address(address)
-    return address.join("\n")
   end
 end
