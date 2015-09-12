@@ -13,9 +13,14 @@ Rails.application.routes.draw do
 
   resources :messages do
     post '/entries' => 'entries#create'
+    post '/yelp_suggestion' => 'yelp_suggestions#create'
   end
 
-  get '/search' => 'yelp_api#search', as: 'search'
+  # for ajax search
+  # get '/search' => 'yelp_api#search', as: 'search'
+  post '/search' => 'yelp_api#search', as: 'search'
+
+
 
 
   # Example of regular route:
