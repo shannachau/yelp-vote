@@ -4,7 +4,22 @@
   <div class="col-md-4">
     <% @message.entries.each do |entry| %>
       <li>
-        <%= entry.text %> <small><%= username(entry) %></small>
+        <% if entry.yelp_suggestion %>
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag entry.yelp_suggestion.image_url %>
+            </div>
+
+            <div class="col-md-5">
+              <%= link_to entry.yelp_suggestion.name, entry.yelp_suggestion.url %>
+              <%= image_tag entry.yelp_suggestion.rating_image %>
+              <p> <%= entry.yelp_suggestion.location %> </p>
+            </div>
+            <small><%= username(entry) %></small>
+          </div>
+        <% else %>
+          <%= entry.text %> <small><%= username(entry) %></small>
+        <% end %>
       </li>
     <% end %>
 

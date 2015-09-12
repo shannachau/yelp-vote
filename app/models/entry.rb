@@ -6,4 +6,5 @@ class Entry < ActiveRecord::Base
   # Associations
   belongs_to :user
   belongs_to :message
+  has_one :yelp_suggestion
 end

@@ -13,7 +13,7 @@ class YelpSuggestionsController < ApplicationController
   private
 
   def entry_create_params
-    params.require(:yelp_suggestion).permit(:text, :user_id, :message_id, :yelp_suggestion)
+    params.require(:yelp_suggestion).permit(:text, :user_id, :message_id, :has_yelp_suggestion)
   end
 
   def yelp_create_params
