@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20150911015144) do
 
   create_table "entries", force: :cascade do |t|
     t.string   "text"
-    t.integer  "user_id",                         null: false
-    t.integer  "message_id",                      null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "yelp_suggestion", default: false
+    t.integer  "user_id",                             null: false
+    t.integer  "message_id",                          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "has_yelp_suggestion", default: false
   end
 
   create_table "messages", force: :cascade do |t|
