@@ -1,0 +1,41 @@
+<% if @results %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <ul class="results list-group">
+        <% @results.each do |result| %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag result[:image_url] %>
+            </div>
+
+            <div class="col-md-5">
+              <%= link_to result[:name], result[:url] %>
+              <%= image_tag result[:rating_image] %>
+              <% result[:location].each do |address| %>
+                <p> <%= address %> </p>
+              <% end %>
+            </div>
+
+            <div class="col-md-3">
+              <%= form_for @yelp_suggestion, url: message_yelp_suggestion_path(@message.id) do |f| %>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.hidden_field :message_id, value: @message.id %>
+                <%= f.hidden_field :yelp_suggestion, value: true %>
+                <%= f.hidden_field :name, value: result[:name] %>
+                <%= f.hidden_field :url, value: result[:url] %>
+                <%= f.hidden_field :image_url, value: result[:image_url] %>
+                <%= f.hidden_field :rating_image, value: result[:rating_image] %>
+                <%= f.hidden_field :location, value: result[:location] %>
+
+                <%= f.submit "Add Suggestion", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
