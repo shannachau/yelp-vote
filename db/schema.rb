@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911015144) do
+ActiveRecord::Schema.define(version: 20150913233040) do
 
   create_table "entries", force: :cascade do |t|
     t.string   "text"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20150911015144) do
 
   add_index "messages_users", ["message_id", "user_id"], name: "index_messages_users_on_message_id_and_user_id"
   add_index "messages_users", ["user_id", "message_id"], name: "index_messages_users_on_user_id_and_message_id"
+
+  create_table "polls", force: :cascade do |t|
+    t.integer  "yes",        default: 0
+    t.integer  "no",         default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
