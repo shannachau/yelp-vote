@@ -7,6 +7,8 @@ class YelpSuggestionsController < ApplicationController
     yelp_suggestion.update(yelp_create_params)
     yelp_suggestion.save
 
+    Poll.create(yelp_suggestion_id: yelp_suggestion.id)
+
     redirect_to message_path(entry.message)
   end
 
@@ -19,4 +21,5 @@ class YelpSuggestionsController < ApplicationController
   def yelp_create_params
     params.require(:yelp_suggestion).permit(:name, :url, :image_url, :rating_image, :location, :entry_id)
   end
+
 end
