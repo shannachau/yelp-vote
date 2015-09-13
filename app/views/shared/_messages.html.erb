@@ -1,7 +1,7 @@
 <h1>Message <%= @message.id %></h1>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <% @message.entries.each do |entry| %>
       <li>
         <% if entry.yelp_suggestion %>
@@ -16,6 +16,14 @@
               <p> <%= entry.yelp_suggestion.location %> </p>
             </div>
             <small><%= username(entry) %></small>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <p>
+                Yes: <%= entry.yelp_suggestion.poll.yes %>
+                No: <%= entry.yelp_suggestion.poll.no %>
+              </p>
+            </div>
           </div>
         <% else %>
           <%= entry.text %> <small><%= username(entry) %></small>
@@ -37,7 +45,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-7">
     <%= form_tag search_path, method: "post", class: "form-inline search-form" do %>
       <div class="form-group">
         <%= label_tag(:search_term) %>
