@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :messages do
     post '/entries' => 'entries#create'
     post '/yelp_suggestion' => 'yelp_suggestions#create'
+    post '/poll/yes' => 'polls#yes', as: 'yes'
+    post '/poll/no' => 'polls#no', as: 'no'
   end
 
   # for ajax search
