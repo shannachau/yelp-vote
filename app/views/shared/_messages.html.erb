@@ -18,19 +18,23 @@
             <small><%= username(entry) %></small>
           </div>
           <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <%= form_tag message_yes_path(@message), method: "post", class: "form-inline" do %>
-                  <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
-                  <%= submit_tag "YES", class: "search btn btn-primary" %>
-                  <%= entry.yelp_suggestion.poll.yes %>
-                <% end %>
-
-                <%= form_tag message_no_path(@message), method: "post", class: "form-inline" do %>
-                  <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
-                  <%= submit_tag "NO", class: "search btn btn-danger" %>
-                  <%= entry.yelp_suggestion.poll.no %>
-                <% end %>
+            <div class="col-md-4 col-md-offset-1">
+              <%= form_tag message_yes_path(@message), method: "post", class: "form-inline" do %>
+                <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
+                <%= submit_tag "YES", class: "btn btn-primary" %>
+                <%= entry.yelp_suggestion.poll.yes %>
+              <% end %>
             </div>
+
+            <div class="col-md-4 col-md-offset-1">
+              <%= form_tag message_no_path(@message), method: "post", class: "form-inline" do %>
+                <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
+                <%= submit_tag "NO", class: "btn btn-danger" %>
+                <%= entry.yelp_suggestion.poll.no %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
           </div>
         <% else %>
           <%= entry.text %> <small><%= username(entry) %></small>
