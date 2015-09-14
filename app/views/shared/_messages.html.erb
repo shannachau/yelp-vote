@@ -19,10 +19,17 @@
           </div>
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
-              <p>
-                Yes: <%= entry.yelp_suggestion.poll.yes %>
-                No: <%= entry.yelp_suggestion.poll.no %>
-              </p>
+                <%= form_tag message_yes_path(@message), method: "post", class: "form-inline" do %>
+                  <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
+                  <%= submit_tag "YES", class: "search btn btn-primary" %>
+                  <%= entry.yelp_suggestion.poll.yes %>
+                <% end %>
+
+                <%= form_tag message_no_path(@message), method: "post", class: "form-inline" do %>
+                  <%= hidden_field_tag :yelp_suggestion_id, entry.yelp_suggestion.id %>
+                  <%= submit_tag "NO", class: "search btn btn-danger" %>
+                  <%= entry.yelp_suggestion.poll.no %>
+                <% end %>
             </div>
           </div>
         <% else %>
